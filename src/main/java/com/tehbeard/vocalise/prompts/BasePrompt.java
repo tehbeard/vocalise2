@@ -13,7 +13,6 @@ public abstract class BasePrompt implements Prompt{
         @Expose
 	private Prompt nextPrompt = null;
 	
-        @Expose
 	private boolean blocks = false;
 	
 	public BasePrompt(boolean block){
@@ -26,6 +25,10 @@ public abstract class BasePrompt implements Prompt{
 
     public String getPromptText(ConversationContext cc) {
         return PromptUtils.format(cc,promptText);
+    }
+    
+    protected String getRawPromptText(){
+        return promptText;
     }
     
     public Prompt getPrompt(){

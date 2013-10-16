@@ -80,7 +80,11 @@ public class PromptGraphBuilder implements JsonDeserializer<Prompt> {
         String type = jsonObject.get("_type").getAsString();
 
         if (ele.isJsonPrimitive()) {
-            p = new PromptProxy(inProgress, ele.getAsJsonPrimitive().getAsString());
+            if (ele.getAsJsonPrimitive().getAsString().equalsIgnoreCase("__exit__")) {
+                p = null;
+            } else {
+                p = new PromptProxy(inProgress, ele.getAsJsonPrimitive().getAsString());
+            }
         } else {
             p = context.deserialize(jsonObject.get("data"), catalogue.get(type));
         }
