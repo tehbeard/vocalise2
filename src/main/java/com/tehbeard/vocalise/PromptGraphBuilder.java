@@ -74,10 +74,7 @@ public class PromptGraphBuilder implements JsonDeserializer<Prompt> {
      */
     public Prompt deserialize(JsonElement ele, Type t,
             JsonDeserializationContext context) throws JsonParseException {
-        Prompt p = null;
-
-        JsonObject jsonObject = ele.getAsJsonObject();
-        String type = jsonObject.get("_type").getAsString();
+        Prompt p;
 
         if (ele.isJsonPrimitive()) {
             if (ele.getAsJsonPrimitive().getAsString().equalsIgnoreCase("__exit__")) {
@@ -86,6 +83,8 @@ public class PromptGraphBuilder implements JsonDeserializer<Prompt> {
                 p = new PromptProxy(inProgress, ele.getAsJsonPrimitive().getAsString());
             }
         } else {
+            JsonObject jsonObject = ele.getAsJsonObject();
+            String type = jsonObject.get("_type").getAsString();
             p = context.deserialize(jsonObject.get("data"), catalogue.get(type));
         }
         inProgress.addPromptToGraph(ele.getAsJsonObject().get("_id").getAsString(), p);
