@@ -14,6 +14,7 @@ public abstract class SessionPrompt extends BasePrompt{
 		super(block);
 	}
 
+        @Override
 	public boolean blocksForInput(ConversationContext context) {
             return blocks;
 	}
@@ -21,5 +22,8 @@ public abstract class SessionPrompt extends BasePrompt{
         public void setSessionValue(ConversationContext context,Object obj){
             context.setSessionData(sessionVariable, obj);
         }
-	
+        
+        public Object getSessionValue(ConversationContext context){
+            return context.getSessionData(sessionVariable);
+        }
 }
