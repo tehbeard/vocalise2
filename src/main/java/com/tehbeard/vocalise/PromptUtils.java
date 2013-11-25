@@ -12,9 +12,9 @@ import com.tehbeard.utils.misc.CallbackMatcher.Callback;
 public class PromptUtils {
 
 	
-	private static CallbackMatcher colorMatcher = new CallbackMatcher("\\[([a-zA-Z])\\]");
+	private static final CallbackMatcher colorMatcher = new CallbackMatcher("\\[([a-zA-Z])\\]");
 	
-	private static CallbackMatcher contextMatcher = new CallbackMatcher("\\$\\{([a-zA-Z0-9\\_\\-]*)\\}");
+	private static final CallbackMatcher contextMatcher = new CallbackMatcher("\\$\\{([a-zA-Z0-9\\_\\-]*)\\}");
 	
 	public static String format(final ConversationContext context,String string){
 		String s = string;

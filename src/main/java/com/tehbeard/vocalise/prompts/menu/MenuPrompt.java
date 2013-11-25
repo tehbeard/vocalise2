@@ -22,7 +22,7 @@ public class MenuPrompt implements Prompt{
     
     
         @Expose
-	protected String text;
+	protected String promptText;
         @Expose
 	List<MenuEntry> prompts;
 	//Map<String,Prompt> prompts;
@@ -35,7 +35,7 @@ public class MenuPrompt implements Prompt{
 		this("Select an option");
 	}
 	public MenuPrompt(String text) {
-		this.text = text;
+		this.promptText = text;
 		prompts = new ArrayList<MenuEntry>();
 	}
 	/**
@@ -55,7 +55,7 @@ public class MenuPrompt implements Prompt{
 			msg +="[" + i++ +"] " + opt.text + "\n";
 		}
 
-		return msg + text;
+		return msg + promptText;
 	}
 
 
@@ -79,6 +79,11 @@ public class MenuPrompt implements Prompt{
 
     public boolean blocksForInput(ConversationContext cc) {
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "MenuPrompt{" + "promptText=" + promptText + ", prompts=" + prompts + '}';
     }
 
 

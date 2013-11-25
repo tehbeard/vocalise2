@@ -21,5 +21,11 @@ class MenuEntry {
         this.text = text;
         this.prompt = prompt;
     }
+
+    @Override
+    public String toString() {
+        return "MenuEntry{" + "text=" + text + ", prompt=" + prompt + '}';
+    }
+    
     
 }

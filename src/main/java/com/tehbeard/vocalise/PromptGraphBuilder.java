@@ -28,13 +28,13 @@ import java.util.regex.Pattern;
  */
 public class PromptGraphBuilder implements JsonDeserializer<Prompt> {
 
-    private Gson gson = new GsonBuilder()
+    private final Gson gson = new GsonBuilder()
             .registerTypeAdapter(Prompt.class, this)
             .registerTypeAdapter(Pattern.class, new RegexDeserializer())
             .excludeFieldsWithoutExposeAnnotation()
             .create();
     private PromptGraph inProgress;
-    private static ClassCatalogue<Prompt> catalogue = new ClassCatalogue<Prompt>();
+    private static final ClassCatalogue<Prompt> catalogue = new ClassCatalogue<Prompt>();
 
     public static void addPromptClass(Class<? extends Prompt> clazz) {
         catalogue.addProduct(clazz);
@@ -52,15 +52,10 @@ public class PromptGraphBuilder implements JsonDeserializer<Prompt> {
         addPromptClass(InputRegexPrompt.class);
         addPromptClass(InputStringPrompt.class);
 
-
     }
 
     public PromptGraph makeGraph(InputStream is) {
-        inProgress = new PromptGraph();
-
-        inProgress.setInitialPrompt(gson.fromJson(new InputStreamReader(is), Prompt.class));
-
-        return inProgress;
+        return new PromptGraph(gson.fromJson(new InputStreamReader(is), Prompt.class));
     }
 
     /**
@@ -85,9 +80,12 @@ public class PromptGraphBuilder implements JsonDeserializer<Prompt> {
         } else {
             JsonObject jsonObject = ele.getAsJsonObject();
             String type = jsonObject.get("_type").getAsString();
-            p = context.deserialize(jsonObject.get("data"), catalogue.get(type));
+            p = context.deserialize(jsonObject, catalogue.get(type));
         }
-        inProgress.addPromptToGraph(ele.getAsJsonObject().get("_id").getAsString(), p);
+        JsonElement id = ele.getAsJsonObject().get("_id");
+        if (id != null) {
+            inProgress.addPromptToGraph(id.getAsString(), p);
+        }
         return p;
     }
 }
