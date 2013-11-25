@@ -1,13 +1,9 @@
 package com.tehbeard.vocalise.prompts.input;
 
-import com.google.gson.annotations.Expose;
 import com.tehbeard.vocalise.PromptTag;
 import com.tehbeard.vocalise.PromptUtils.BooleanName;
-import com.tehbeard.vocalise.prompts.BasePrompt;
 import com.tehbeard.vocalise.prompts.SessionPrompt;
 
-import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.conversations.BooleanPrompt;
 import org.bukkit.conversations.ConversationContext;
 import org.bukkit.conversations.Prompt;
 
@@ -24,7 +20,7 @@ import org.bukkit.conversations.Prompt;
  * @author James
  *
  */
-@PromptTag("inpbool")
+@PromptTag("input_boolean")
 public class InputBooleanPrompt extends SessionPrompt{
 
     public InputBooleanPrompt(){

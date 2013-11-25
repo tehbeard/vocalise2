@@ -9,7 +9,7 @@ import org.bukkit.conversations.Prompt;
  *
  * @author James
  */
-@PromptTag("inpstr")
+@PromptTag("input_string")
 
 public class InputStringPrompt extends SessionPrompt{
     

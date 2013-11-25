@@ -18,7 +18,7 @@ import org.bukkit.entity.Player;
  *
  * @author James
  */
-@PromptTag("execonsole")
+@PromptTag("execute_console")
 public class ExecuteConsoleCommandPrompt extends BasePrompt {
 
     CallbackMatcher matcher = new CallbackMatcher("\\$\\{([A-Za-z0-9_]*)\\}");

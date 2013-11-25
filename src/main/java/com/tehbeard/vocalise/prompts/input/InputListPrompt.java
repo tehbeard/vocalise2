@@ -1,12 +1,10 @@
 package com.tehbeard.vocalise.prompts.input;
 
-import com.google.gson.annotations.Expose;
 import com.tehbeard.vocalise.PromptTag;
 import com.tehbeard.vocalise.PromptUtils;
 import com.tehbeard.vocalise.prompts.SessionPrompt;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import org.bukkit.conversations.ConversationContext;
 import org.bukkit.conversations.Prompt;
 
@@ -15,7 +13,7 @@ import org.bukkit.conversations.Prompt;
  *
  * @author James
  */
-@PromptTag("inpsetlist")
+@PromptTag("input_list")
 public class InputListPrompt extends SessionPrompt {
 
     public InputListPrompt() {
@@ -24,12 +22,6 @@ public class InputListPrompt extends SessionPrompt {
 
     @Override
     public String getPromptText(ConversationContext cc) {
-        if (getSessionValue(cc) != null) {
-            cc.getForWhom().sendRawMessage("Entered values:");
-            for (String opt : (List<String>)getSessionValue(cc)) {
-                cc.getForWhom().sendRawMessage(opt);
-            }
-        }
         cc.getForWhom().sendRawMessage("Type /done to end the list");
         return PromptUtils.format(cc, getRawPromptText());
     }

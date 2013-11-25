@@ -1,6 +1,5 @@
 package com.tehbeard.vocalise.prompts;
 
-import com.google.gson.annotations.Expose;
 import org.bukkit.conversations.ConversationContext;
 import org.bukkit.conversations.Prompt;
 
@@ -11,7 +10,7 @@ import com.tehbeard.vocalise.PromptTag;
  * @author James
  *
  */
-@PromptTag("msg")
+@PromptTag("message")
 public class MsgPrompt extends BasePrompt{
 
   

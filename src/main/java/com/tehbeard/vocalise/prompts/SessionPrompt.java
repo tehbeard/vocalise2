@@ -8,16 +8,11 @@ public abstract class SessionPrompt extends BasePrompt{
         @Expose
         private String sessionVariable = "";
 	
-	private boolean blocks = false;
-	
+
 	public SessionPrompt(boolean block){
 		super(block);
 	}
 
-        @Override
-	public boolean blocksForInput(ConversationContext context) {
-            return blocks;
-	}
         
         public void setSessionValue(ConversationContext context,Object obj){
             context.setSessionData(sessionVariable, obj);

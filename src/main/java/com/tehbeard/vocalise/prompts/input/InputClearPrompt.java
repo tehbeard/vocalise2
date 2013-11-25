@@ -6,7 +6,7 @@ import org.bukkit.conversations.ConversationContext;
 import org.bukkit.conversations.Prompt;
 
 
-@PromptTag("inpclr")
+@PromptTag("input_clear")
 public class InputClearPrompt extends SessionPrompt{
     
     public InputClearPrompt(){

@@ -48,7 +48,7 @@ public class PromptGraphBuilder implements JsonDeserializer<Prompt> {
         addPromptClass(InputBooleanPrompt.class);
         addPromptClass(InputClearPrompt.class);
         addPromptClass(InputNumberPrompt.class);
-        addPromptClass(InputPlayerNamePrompt.class);
+        addPromptClass(InputPlayerPrompt.class);
         addPromptClass(InputRegexPrompt.class);
         addPromptClass(InputStringPrompt.class);
 

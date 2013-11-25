@@ -1,13 +1,12 @@
 package com.tehbeard.vocalise.prompts.input;
 
-import com.google.gson.annotations.Expose;
 import com.tehbeard.vocalise.PromptTag;
 import com.tehbeard.vocalise.prompts.SessionPrompt;
 
 import org.bukkit.conversations.ConversationContext;
 import org.bukkit.conversations.Prompt;
 
-@PromptTag("inpnum")
+@PromptTag("input_number")
 /**
  * input number prompt
  * Configuration format:

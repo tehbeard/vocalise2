@@ -9,7 +9,6 @@ import org.bukkit.conversations.ConversationContext;
 import org.bukkit.conversations.Prompt;
 
 import com.tehbeard.vocalise.PromptTag;
-import com.tehbeard.vocalise.prompts.BasePrompt;
 
 /**
  * Implements a text menu prompt for bukkit's conversation API

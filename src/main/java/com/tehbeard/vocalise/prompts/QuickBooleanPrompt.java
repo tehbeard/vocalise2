@@ -17,7 +17,7 @@ import com.tehbeard.vocalise.PromptUtils;
  * @author James
  *
  */
-@PromptTag("bool")
+@PromptTag("decision_boolean")
 public class QuickBooleanPrompt extends BasePrompt {
     
         
